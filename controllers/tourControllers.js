@@ -5,7 +5,14 @@ const {
 
 exports.getTours = async (req, res, next) => {
   try {
-    const tours = await getTourService();
+    const tourQureies = {};
+
+    if (req.query.fields) {
+      const byFields = req.query.fields.split(",").join(" ");
+      tourQureies.byFields = byFields;
+    }
+
+    const tours = await getTourService(tourQureies);
     res.status(200).json({
       status: "Success",
       data: tours,

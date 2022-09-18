@@ -4,6 +4,7 @@ const {
   getTourServiceById,
   updateTourServiceById,
   getTourTrendingService,
+  getTourCheapsetService,
 } = require("../services/tourServices");
 
 exports.getTours = async (req, res, next) => {
@@ -96,6 +97,21 @@ exports.getToursTrending = async (req, res, next) => {
     res.status(404).json({
       status: "Failed",
       message: "Trending Not Found",
+      error: error.message,
+    });
+  }
+};
+exports.getToursCheapsetData = async (req, res, next) => {
+  try {
+    const getCheapset = await getTourCheapsetService();
+    res.status(200).json({
+      status: "Success",
+      data: getCheapset,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "Failed",
+      message: "Cheapset Tour Not Found",
       error: error.message,
     });
   }

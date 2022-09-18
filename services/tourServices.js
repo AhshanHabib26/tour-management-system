@@ -38,3 +38,8 @@ exports.getTourTrendingService = async () => {
     .limit(3);
   return trendingService;
 };
+
+exports.getTourCheapsetService = async () => {
+  const cheapsetService = await Tour.find({ price: { $lte: 2000 } }).limit(3);
+  return cheapsetService;
+};

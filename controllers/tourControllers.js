@@ -12,6 +12,11 @@ exports.getTours = async (req, res, next) => {
       tourQureies.byFields = byFields;
     }
 
+    if (req.query.sort) {
+      const bySort = req.query.sort.split(",").join(" ");
+      tourQureies.bySort = bySort;
+    }
+
     const tours = await getTourService(tourQureies);
     res.status(200).json({
       status: "Success",

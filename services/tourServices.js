@@ -1,7 +1,10 @@
 const Tour = require("../models/tourModels");
 
 exports.getTourService = async (tourQureies) => {
-  const getResult = await Tour.find({}).select(tourQureies.byFields);
+  const getResult = await Tour.find({})
+    .select(tourQureies.byFields)
+    .sort(tourQureies.bySort);
+
   return getResult;
 };
 

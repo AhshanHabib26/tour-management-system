@@ -31,3 +31,10 @@ exports.updateTourServiceById = async (tourId, tourData) => {
   );
   return updateTour;
 };
+
+exports.getTourTrendingService = async () => {
+  const trendingService = await Tour.find({ views: { $gt: 1 } })
+    .sort({ views: -1 })
+    .limit(3);
+  return trendingService;
+};

@@ -4,12 +4,13 @@ const {
   createTours,
   getToursById,
   updateToursById,
+  getToursTrending,
 } = require("../controllers/tourControllers");
 const router = express.Router();
 
 router.route("/").get(getTours).post(createTours);
 
-router.route("/trending").get();
+router.route("/trending").get(getToursTrending);
 
 router.route("/cheapset").get();
 

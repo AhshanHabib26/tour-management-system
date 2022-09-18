@@ -1,10 +1,11 @@
 const express = require('express');
+const { getTours, createTours } = require('../controllers/tourControllers');
 const router = express.Router()
 
 
 router.route('/')
-.get()
-.post()
+.get(getTours)
+.post(createTours)
 
 router.route('/trending')
 .get()

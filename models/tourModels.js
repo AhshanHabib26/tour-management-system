@@ -14,6 +14,10 @@ const tourSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    address: {
+      type: String,
+      required: true,
+    },
     price: {
       type: Number,
       required: true,
@@ -23,7 +27,7 @@ const tourSchema = mongoose.Schema(
       default: 0,
     },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 const Tour = mongoose.model("Tour", tourSchema);

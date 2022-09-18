@@ -21,6 +21,13 @@ exports.getTours = async (req, res, next) => {
       tourQureies.bySort = bySort;
     }
 
+   if(req.query){
+    const {page= 1, limit= 5} = req.query
+    const skipPage = parseInt(page - 1 ) * parseInt(limit)
+    tourQureies.skipPage = skipPage
+    tourQureies.limit = limit
+   }
+
     const tours = await getTourService(tourQureies);
     res.status(200).json({
       status: "Success",

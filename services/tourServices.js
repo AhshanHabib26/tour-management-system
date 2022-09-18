@@ -2,6 +2,8 @@ const Tour = require("../models/tourModels");
 
 exports.getTourService = async (tourQureies) => {
   const getResult = await Tour.find({})
+    .skip(tourQureies.skipPage)
+    .limit(tourQureies.limit)
     .select(tourQureies.byFields)
     .sort(tourQureies.bySort);
 

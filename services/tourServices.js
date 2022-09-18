@@ -20,3 +20,14 @@ exports.getTourServiceById = async (tourId) => {
   );
   return findTourById;
 };
+
+exports.updateTourServiceById = async (tourId, tourData) => {
+  const updateTour = await Tour.updateOne(
+    { _id: tourId },
+    { $set: tourData },
+    {
+      runValidators: true,
+    }
+  );
+  return updateTour;
+};

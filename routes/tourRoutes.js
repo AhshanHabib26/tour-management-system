@@ -1,5 +1,5 @@
 const express = require('express');
-const { getTours, createTours } = require('../controllers/tourControllers');
+const { getTours, createTours, getToursById } = require('../controllers/tourControllers');
 const router = express.Router()
 
 
@@ -14,7 +14,7 @@ router.route('/cheapset')
 .get()
 
 router.route('/:id')
-.get()
+.get(getToursById)
 .patch()
 
 

@@ -7,12 +7,9 @@ const app = express();
 require("dotenv").config();
 const toursRoute = require("./routes/tourRoutes");
 
-
 // Middleware
 app.use(express.json());
 app.use(cors());
-
-
 
 // Database Connection
 mongoose
@@ -24,12 +21,17 @@ mongoose
     console.log("Database Connection Error".red.bold);
   });
 
-
-
 // Application Routes
 app.use("/api/v1/tours", toursRoute);
 
+// initial routs
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "Success",
+    message: "Welcome To Tour Managment System (Ahsahn Habib)",
+  });
+});
 
 // Server Connection
 app.listen(port, () => {

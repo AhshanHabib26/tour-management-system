@@ -7,9 +7,12 @@ const app = express();
 require("dotenv").config();
 const toursRoute = require("./routes/tourRoutes");
 
+
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+
 
 // Database Connection
 mongoose
@@ -21,13 +24,14 @@ mongoose
     console.log("Database Connection Error".red.bold);
   });
 
+
+
 // Application Routes
-
-
 app.use("/api/v1/tours", toursRoute);
 
-// Server Connection
 
+
+// Server Connection
 app.listen(port, () => {
   console.log(`Server is Running ${port}`.yellow.bold);
 });

@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 
+
+// Tour Model Schema
+
 const tourSchema = mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
       trim: true,
-      unique: [true, "The {VALUE} Already Taken"],
+      unique: [true, "The {VALUE} already taken"],
       minLength: 3,
       maxLength: 100,
     },

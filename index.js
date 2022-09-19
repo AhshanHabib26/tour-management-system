@@ -24,8 +24,9 @@ mongoose
 // Application Routes
 app.use("/api/v1/tours", toursRoute);
 
-// initial routs
 
+
+// Initial Routes
 app.get("/", (req, res) => {
   res.status(200).json({
     status: "Success",
